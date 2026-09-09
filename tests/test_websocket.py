@@ -8,14 +8,14 @@ def test_swagger_docs_available():
     response = client.get("/docs")
     assert response.status_code == 200
 
-@pytest.mark.asyncio
-async def test_websocket_handshake_and_echo():
+def test_websocket_handshake_and_json_protocol():
     client_id = "test_esp32_01"
     
-    # Handshake y simulación de ciclo de vida del WebSocket
+    # Valida el handshake exitoso y la respuesta del protocolo ante payload JSON
     with client.websocket_connect(f"/ws/{client_id}") as websocket:
-        payload = "ping_payload"
-        websocket.send_text(payload)
+        # Enviar paquete de prueba sin tópico obligatorio para validar respuesta del servidor
+        websocket.send_json({"action": "subscribe"})
         
-        data = websocket.receive_text()
-        assert data == f"ACK [{client_id}]: {payload}"
+        response = websocket.receive_json()
+        assert "error" in response
+        assert response["error"] == "El campo 'topic' es obligatorio."
