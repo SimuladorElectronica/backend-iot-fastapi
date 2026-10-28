@@ -1,9 +1,9 @@
 <!-- evaluacion:inicio -->
 # Evaluación — SimuladorElectronica/backend-iot-fastapi
 
-> Documento **generado automáticamente** por la cátedra de Programación III (RepoSense + análisis de calidad). **No editar a mano**: se regenera en cada evaluación.
+> Documento **generado automáticamente** por la cátedra de Programación III (RepoSense + análisis de calidad + constancia). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-17.
+> Generado: 2026-10-28.
 
 ## 1. Veredicto
 
@@ -27,7 +27,17 @@
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-## 3. Aspectos evaluados
+## 3. Constancia (IC) — todas las ramas
+
+> El IC mide **cuándo** se trabajó (sesiones por semana, pausas y recencia), no cuánto ni con qué calidad. Se calcula sobre **todas las ramas** de todos los repositorios del alumno, no sólo `main`.
+
+| Alumno | Sesiones | Cumplimiento | Pausa | Recencia | IC | Nivel | Para subir de nivel |
+|---|--:|--:|--:|--:|--:|--|--|
+| IvoGiovarruscio | 7 | 32% | 14 d | 50% | **28** | No aprueba | Cumplimiento 32% (mín. 50%); Pausa 14 d (máx. 10 d) |
+
+> Para aprobar el IC: **2 sesiones por semana** sostenidas, sin pausas mayores a **10 días** y con actividad en las **últimas 2 semanas**. Se excluyen merges, bots y al docente. Zona horaria UTC-3.
+
+## 4. Aspectos evaluados
 
 Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuando el resultado está en rojo, se agregan preguntas para **investigar la causa** (no hay recetas: entender el porqué es parte de la evaluación).
 
@@ -141,7 +151,21 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
     - ¿Cuántas operaciones del enunciado resuelve la API?
     - ¿Hay operaciones que el frontend resuelve por fuera del backend?
 
-## 4. Anexo: dónde mirar
+## 5. Qué falta para aprobar
+
+Criterios que hoy están en rojo y qué habría que cambiar para alcanzar el nivel de aprobación (perfil `exigente`):
+
+| Criterio | Resultado actual | Meta | Qué arreglar |
+|---|---|---|---|
+| Índice de calidad de servicios (indice) | índice **33/100** | mínimo 60 | Subir el índice a ≥60 corrigiendo primero las señales de más peso: duplicación, secretos, SQL y capas. |
+| Separación en capas (capas) | **0** capa(s) detectada(s): ninguna | mínimo 2 capas (a partir de 150 LOC) | Separar el código en al menos 2 capas con responsabilidades claras (rutas/controladores, servicios, modelos o acceso a datos). |
+| Complejidad alta (Compl) | **4** bloque(s) de complejidad alta | máximo 5 por 1000 LOC (tenés 201 LOC) | Extraer ramas y reglas a funciones con nombre propio; ≤5 bloques por 1000 LOC. |
+| Tests automatizados (Tests) | **2** archivo(s) de test | mínimo 5 | Agregar tests de los flujos principales hasta llegar a 5 archivos. |
+| Endpoints del backend (EP) | **6** endpoint(s) | mínimo 10 | Exponer las operaciones del contrato que faltan hasta llegar a 10 endpoints. |
+
+> Empezá por las señales de seguridad (**SEC**, **SQL**) y por la **duplicación**: son las que más pesan en el índice y las más rápidas de verificar a ojo.
+
+## 6. Anexo: dónde mirar
 
 Archivos donde el análisis encontró cada señal en rojo (sin número de línea, a propósito):
 
