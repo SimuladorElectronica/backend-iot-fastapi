@@ -10,13 +10,13 @@
 | Aspecto | Resultado |
 |---|---|
 | Tipo de proyecto | backend |
-| Índice de calidad de servicios | **40/100** (mínimo 60) |
+| Índice de calidad de servicios | **51/100** (mínimo 60) |
 | Criterios cumplidos | **11/15** |
 | Aprobado (semáforo) | **NO** |
 | Código (LOC) | 201 |
 | Archivos de código | 4 |
 | Tests (archivos) | 2 |
-| Cobertura de líneas | 85.5% (mínimo 80%) |
+| Cobertura de líneas | 85.9% (mínimo 80%) |
 | Capas detectadas | ninguna |
 
 > **Aprobado** exige cumplir **todos** los criterios del semáforo. No es una nota: sirve para ordenar y priorizar la revisión.
@@ -47,7 +47,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina todas las señales y métricas del análisis, con topes duros por duplicación.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **40/100** _(mínimo 60)_
+- **Tu resultado:** índice **51/100** _(mínimo 60)_
 - **Para investigar la causa:**
     - ¿En qué momento del proyecto se concentraron los problemas (arranque, integración de partes, cierre)?
     - ¿El índice bajó por muchas señales chicas o por una o dos graves?
@@ -137,7 +137,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Porcentaje de líneas de código ejecutadas por la suite de tests (cobertura real, no cantidad de archivos de test).
 - **Por qué importa:** Un test que existe pero no ejecuta el código no protege de nada: la cobertura muestra qué partes quedan sin verificar.
-- **Tu resultado:** **85.5%** de líneas cubiertas _(mínimo 80% de líneas)_
+- **Tu resultado:** **85.9%** de líneas cubiertas _(mínimo 80% de líneas)_
 
 ### 15. Endpoints del backend (EP) — A REVISAR
 
@@ -155,7 +155,7 @@ Criterios que hoy están en rojo y qué habría que cambiar para alcanzar el niv
 
 | Criterio | Resultado actual | Meta | Qué arreglar |
 |---|---|---|---|
-| Índice de calidad de servicios (indice) | índice **40/100** | mínimo 60 | Subir el índice a ≥60 corrigiendo primero las señales de más peso: duplicación, secretos, SQL y capas. |
+| Índice de calidad de servicios (indice) | índice **51/100** | mínimo 60 | Subir el índice a ≥60 corrigiendo primero las señales de más peso: duplicación, secretos, SQL y capas. |
 | Separación en capas (capas) | **0** capa(s) detectada(s): ninguna | mínimo 2 capas (a partir de 150 LOC) | Separar el código en al menos 2 capas con responsabilidades claras (rutas/controladores, servicios, modelos o acceso a datos). |
 | Complejidad alta (Compl) | **4** bloque(s) de complejidad alta | máximo 5 por 1000 LOC (tenés 201 LOC) | Extraer ramas y reglas a funciones con nombre propio; ≤5 bloques por 1000 LOC. |
 | Endpoints del backend (EP) | **6** endpoint(s) | mínimo 10 | Exponer las operaciones del contrato que faltan hasta llegar a 10 endpoints. |
