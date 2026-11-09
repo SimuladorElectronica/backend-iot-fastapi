@@ -34,48 +34,54 @@ async def publish_mqtt_message(request: PublishRequest):
         "receivers": receivers_count
     }
 
+async def _handle_subscribe(websocket: WebSocket, topic: str, data: dict):
+    mqtt_broker.subscribe(topic, websocket)
+    await websocket.send_json({"type": "system", "status": "subscribed", "topic": topic})
+
+
+async def _handle_unsubscribe(websocket: WebSocket, topic: str, data: dict):
+    mqtt_broker.unsubscribe(websocket, topic)
+    await websocket.send_json({"type": "system", "status": "unsubscribed", "topic": topic})
+
+
+async def _handle_publish(websocket: WebSocket, topic: str, data: dict):
+    payload = str(data.get("payload", ""))
+    recipients = await mqtt_broker.publish(topic, payload, sender=websocket)
+    await websocket.send_json({
+        "type": "system",
+        "status": "published",
+        "topic": topic,
+        "recipients": recipients
+    })
+
+
+_ACTION_HANDLERS = {
+    "subscribe": _handle_subscribe,
+    "unsubscribe": _handle_unsubscribe,
+    "publish": _handle_publish,
+}
+
+
+async def _handle_message(websocket: WebSocket, data: dict):
+    topic = data.get("topic")
+    if not topic:
+        await websocket.send_json({"error": "El campo 'topic' es obligatorio."})
+        return
+
+    handler = _ACTION_HANDLERS.get(data.get("action"))
+    if handler is None:
+        await websocket.send_json({"error": f"Acción desconocida: {data.get('action')}"})
+        return
+
+    await handler(websocket, topic, data)
+
+
 @app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
     await websocket.accept()
     try:
         while True:
-            data = await websocket.receive_json()
-            action = data.get("action")
-            topic = data.get("topic")
-
-            if not topic:
-                await websocket.send_json({"error": "El campo 'topic' es obligatorio."})
-                continue
-
-            if action == "subscribe":
-                mqtt_broker.subscribe(topic, websocket)
-                await websocket.send_json({
-                    "type": "system",
-                    "status": "subscribed",
-                    "topic": topic
-                })
-
-            elif action == "unsubscribe":
-                mqtt_broker.unsubscribe(websocket, topic)
-                await websocket.send_json({
-                    "type": "system",
-                    "status": "unsubscribed",
-                    "topic": topic
-                })
-
-            elif action == "publish":
-                payload = str(data.get("payload", ""))
-                recipients = await mqtt_broker.publish(topic, payload, sender=websocket)
-                await websocket.send_json({
-                    "type": "system",
-                    "status": "published",
-                    "topic": topic,
-                    "recipients": recipients
-                })
-
-            else:
-                await websocket.send_json({"error": f"Acción desconocida: {action}"})
-
+            await _handle_message(websocket, await websocket.receive_json())
     except WebSocketDisconnect:
         mqtt_broker.unsubscribe(websocket)
 

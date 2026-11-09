@@ -14,6 +14,18 @@ def test_swagger_mqtt_status_endpoint():
     assert "total_messages_published" in data
 
 
+def test_health_endpoint():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json()["status"] == "ok"
+
+
+def test_rest_publish_without_subscribers_returns_zero_receivers():
+    response = client.post("/mqtt/publish", json={"topic": "escuela/sin_suscriptores", "payload": "x"})
+    assert response.status_code == 200
+    assert response.json()["receivers"] == 0
+
+
 def test_mqtt_pub_sub_latency_under_50ms():
     topic = "escuela/temperatura"
     payload_val = "25.4"
