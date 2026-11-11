@@ -3,20 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación III (RepoSense + análisis de calidad + constancia). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-06.
+> Generado: 2026-11-11.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
 | Tipo de proyecto | backend |
-| Índice de calidad de servicios | **85/100** (mínimo 50) |
+| Índice de calidad de servicios | **83/100** (mínimo 50) |
 | Criterios cumplidos | **14/15** |
 | Aprobado (semáforo) | **SI** |
-| Código (LOC) | 121 |
+| Código (LOC) | 131 |
 | Archivos de código | 2 |
-| Tests (archivos) | 2 |
-| Cobertura de líneas | 85.9% (mínimo 80%) |
+| Tests (archivos) | 3 |
+| Cobertura de líneas | 96.8% (mínimo 80%) |
 | Capas detectadas | ninguna |
 | Pushes directos a `main` (sin PR) | 0 |
 
@@ -26,7 +26,7 @@
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| IvoGiovarruscio | 2 | 250 | 0 | 48 | 3 | 100% |
+| IvoGiovarruscio | 3 | 360 | 0 | 48 | 5 | 100% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
@@ -36,7 +36,7 @@
 
 | Alumno | Sesiones | Cumplimiento | Pausa | Recencia | IC | Nivel | Para subir de nivel |
 |---|--:|--:|--:|--:|--:|--|--|
-| IvoGiovarruscio | 8 | 35% | 14 d | 43% | **29** | No aprueba | Cumplimiento 35% (mín. 50%); Recencia 43% (mín. 50%) |
+| IvoGiovarruscio | 12 | 47% | 14 d | 93% | **43** | No aprueba | Cumplimiento 47% (mín. 50%) |
 
 > Para aprobar el IC: **2 sesiones por semana** sostenidas, sin pausas mayores a **10 días** y con actividad en las **últimas 2 semanas**. Se excluyen merges, bots y al docente. Zona horaria UTC-3.
 
@@ -48,7 +48,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina todas las señales y métricas del análisis, con topes duros por duplicación.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **85/100** _(mínimo 50)_
+- **Tu resultado:** índice **83/100** _(mínimo 50)_
 
 ### 2. Duplicación (DRY) (duplicacion) — OK
 
@@ -98,27 +98,27 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Son difíciles de leer, probar y reutilizar, y sus cambios tienen efectos inesperados.
 - **Tu resultado:** **0** componente(s) demasiado grande(s) _(máximo 1)_
 
-### 10. Baja cohesión (Coh) — OK
+### 10. Baja cohesión (Coh) — A REVISAR
 
 - **Qué mide:** Una clase o unidad cuyos métodos y campos no están relacionados entre sí.
 - **Por qué importa:** Una unidad que cambia por motivos distintos es frágil y cuesta entenderla.
-- **Tu resultado:** **0** unidad(es) con baja cohesión _(máximo 0)_
+- **Tu resultado:** **1** unidad(es) con baja cohesión _(máximo 0)_
+- **Para investigar la causa:**
+    - ¿La unidad agrupa cosas que en realidad pertenecen a lugares distintos?
+    - ¿Cambia por motivos diferentes según la tarea?
+    - ¿Se pensó su responsabilidad antes de escribirla, o se fue agregando?
 
-### 11. Complejidad alta (Compl) — A REVISAR
+### 11. Complejidad alta (Compl) — OK
 
 - **Qué mide:** Complejidad ciclomática: cantidad de caminos posibles dentro de una función (condicionales, bucles, casos).
 - **Por qué importa:** Muchos caminos = difícil de seguir y de probar; suelen esconderse casos sin cubrir.
-- **Tu resultado:** **2** bloque(s) de complejidad alta _(máximo 5 por 1000 LOC (tenés 121 LOC))_
-- **Para investigar la causa:**
-    - ¿Se agregaron condiciones a medida que aparecían casos nuevos?
-    - ¿Se probaron todos los caminos o solo el caso principal?
-    - ¿Hay reglas de negocio mezcladas con detalles técnicos?
+- **Tu resultado:** **0** bloque(s) de complejidad alta _(máximo 5 por 1000 LOC (tenés 131 LOC))_
 
 ### 12. Funciones/métodos largos o con muchos parámetros (Tam) — OK
 
 - **Qué mide:** Tamaño de las funciones/métodos y cantidad de parámetros.
 - **Por qué importa:** Una función que hace varias cosas cuesta leerla, nombrarla y reutilizarla.
-- **Tu resultado:** **1** función/método(s) largos o con muchos parámetros _(máximo 10 por 1000 LOC)_
+- **Tu resultado:** **0** función/método(s) largos o con muchos parámetros _(máximo 10 por 1000 LOC)_
 
 ### 13. Acoplamiento alto (Acop) — OK
 
@@ -130,7 +130,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Porcentaje de líneas de código ejecutadas por la suite de tests (cobertura real, no cantidad de archivos de test).
 - **Por qué importa:** Un test que existe pero no ejecuta el código no protege de nada: la cobertura muestra qué partes quedan sin verificar.
-- **Tu resultado:** **85.9%** de líneas cubiertas · fuente: ejecución: pytest _(mínimo 80% de líneas)_
+- **Tu resultado:** **96.8%** de líneas cubiertas · fuente: ejecución: pytest _(mínimo 80% de líneas)_
 
 ### 15. Endpoints del backend (EP) — OK
 
@@ -144,19 +144,19 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 | Criterio | Resultado actual | Meta | Brecha | Cómo alcanzarlo |
 |---|---|---|---|---|
-| Complejidad alta (Compl) | **2** bloque(s) de complejidad alta | máximo 5 por 1000 LOC (tenés 121 LOC) | 2 hallazgo(s); el máximo para 121 LOC es 0.6 | Extraé condiciones y ramas a funciones con nombre propio, usá retornos tempranos y evitá anidar `if`/`switch`. Meta: ≤5 bloques por 1000 LOC. |
+| Baja cohesión (Coh) | **1** unidad(es) con baja cohesión | máximo 0 | 1 clase(s) a separar | Separá la clase en unidades con una sola responsabilidad: si los métodos cambian por motivos distintos, son clases distintas. Meta: 0 clases con baja cohesión. |
 
-> **Tests (informativo):** hoy tenés **2** archivo(s) de test; la meta es **5**, pero **no** es una compuerta del semáforo. Para acercarte, agregá tests de los flujos principales (servicios y endpoints) y corré la suite con coverage.
+> **Tests (informativo):** hoy tenés **3** archivo(s) de test; la meta es **5**, pero **no** es una compuerta del semáforo. Para acercarte, agregá tests de los flujos principales (servicios y endpoints) y corré la suite con coverage.
 
 ## 6. Actividad en clase (miércoles y viernes)
 
-> Se consideran las **23 clases** del período (miércoles y viernes; Nov 4 y 6 quedan afuera porque el calendario las marca sin clase). `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**.
+> Se consideran las **23 clases** del período (miércoles y viernes, según `config/constancia.json`; feriados y semanas sin clase descontados). `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**.
 
 ### IvoGiovarruscio
 
-**10/23 clases con actividad** · 18 commits · 7 merges
+**10/23 clases con actividad** · 18 commits · 6 merges
 
-| Fecha | Marca | Repositorios | Commits / merges |
+| Fecha | Actividad | Repositorios | Commits / merges |
 |---|:--:|---|--:|
 | 2026-08-14 | No | sin actividad | 0 / 0 |
 | 2026-08-19 | No | sin actividad | 0 / 0 |
@@ -179,15 +179,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 | 2026-10-16 | **Sí** | simulador-frontend-react | 3 / 0 |
 | 2026-10-21 | **Sí** | backend-core-nestjs, simulador-frontend-react | 3 / 0 |
 | 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-28 | **Sí** | backend-core-nestjs, simulador-frontend-react | 2 / 1 |
+| 2026-10-28 | **Sí** | backend-core-nestjs, simulador-frontend-react | 2 / 0 |
 | 2026-10-30 | No | sin actividad | 0 / 0 |
 
 ## 7. Anexo: dónde mirar
 
 Archivos donde el análisis encontró cada señal en rojo (sin número de línea, a propósito):
 
-**Complejidad alta (Compl)** — 2 archivo(s):
-- `main.py`
+**Baja cohesión (Coh)** — 1 archivo(s):
 - `mqtt_broker.py`
 
 ---
