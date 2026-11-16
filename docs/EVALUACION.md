@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación III (RepoSense + análisis de calidad + constancia). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-14.
+> Generado: 2026-11-16.
 
 ## 1. Veredicto
 
@@ -36,7 +36,7 @@
 
 | Alumno | Sesiones | Cumplimiento | Pausa | Recencia | IC | Nivel | Para subir de nivel |
 |---|--:|--:|--:|--:|--:|--|--|
-| IvoGiovarruscio | 15 | 57% | 14 d | 100% | **51** | Aprueba | Cumplimiento 57% (mín. 100%); Pausa 14 d (máx. 5 d) |
+| IvoGiovarruscio | 16 | 59% | 14 d | 93% | **51** | Aprueba | Cumplimiento 59% (mín. 100%); Pausa 14 d (máx. 5 d) |
 
 > Para aprobar el IC: **2 sesiones por semana** sostenidas, sin pausas mayores a **10 días** y con actividad en las **últimas 2 semanas**. Se excluyen merges, bots y al docente. Zona horaria UTC-3.
 
@@ -154,7 +154,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ### IvoGiovarruscio
 
-**13/27 clases con actividad** · total del período: 25 commits · 9 merges
+**13/27 clases con actividad** · total del período: 25 commits · 8 merges
 
 | Fecha | Actividad | Repositorios | Commits / merges |
 |---|:--:|---|--:|
@@ -184,9 +184,9 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 | 2026-11-04 | No | sin actividad | 0 / 0 |
 | 2026-11-06 | **Sí** | simulador-frontend-react | 2 / 0 |
 | 2026-11-11 | **Sí** | backend-core-nestjs, dashboard-frontend-vue, simulador-frontend-react | 4 / 2 |
-| 2026-11-13 | **Sí** | simulador-frontend-react | 1 / 1 |
+| 2026-11-13 | **Sí** | simulador-frontend-react | 1 / 0 |
 
-**Fuera de clase:** 4 fecha(s) con actividad · 24 commits · 11 merges
+**Fuera de clase:** 5 fecha(s) con actividad · 27 commits · 14 merges
 
 | Fecha | Repositorios | Commits / merges |
 |---|---|--:|
@@ -194,6 +194,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 | 2026-11-09 | backend-core-nestjs, backend-iot-fastapi, simulador-frontend-react | 6 / 6 |
 | 2026-11-10 | backend-core-nestjs, dashboard-frontend-vue, simulador-frontend-react | 5 / 1 |
 | 2026-11-12 | backend-core-nestjs, dashboard-frontend-vue, simulador-frontend-react | 10 / 3 |
+| 2026-11-15 | dashboard-frontend-vue, simulador-frontend-react | 3 / 3 |
 
 ## 7. Anexo: dónde mirar
 
