@@ -197,13 +197,16 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 | 2026-11-12 | backend-core-nestjs, dashboard-frontend-vue, simulador-frontend-react | 10 / 3 |
 | 2026-11-15 | dashboard-frontend-vue, simulador-frontend-react | 3 / 3 |
 
-## 7. Anexo: dónde mirar
+## 7. Anexo: archivos donde se originan los problemas
 
-Archivos donde el análisis encontró cada señal en rojo (sin número de línea, a propósito):
+Se listan los archivos y líneas que el análisis marca para cada criterio en rojo. Para **duplicación** se muestran los archivos con más líneas repetidas; para **cobertura**, las unidades por debajo del umbral.
 
-**Baja cohesión (Coh)** — 1 archivo(s):
-- `mqtt_broker.py`
+**Baja cohesión (Coh)** — 1 hallazgo(s) en 1 archivo(s):
+
+| Archivo | Línea(s) | Señal |
+|---|---|---|
+| `mqtt_broker.py` | 6 | clase 'InMemoryMQTTBroker' con baja cohesión (47%) |
 
 ---
-_Informe generado por la cátedra. Los umbrales corresponden al perfil `exigente`. Ante dudas, revisá el archivo señalado y el criterio en `CRITERIOS-CALIDAD.md`._
+_Informe generado por la cátedra. Los umbrales corresponden al perfil `exigente`. Ante dudas, revisá el archivo y la línea señalados y el criterio en `CRITERIOS-CALIDAD.md`._
 <!-- evaluacion:fin -->
