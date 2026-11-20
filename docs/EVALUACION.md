@@ -200,13 +200,19 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 7. Anexo: archivos donde se originan los problemas
 
-Se listan los archivos y líneas que el análisis marca para cada criterio en rojo. Para **duplicación** se muestran los archivos con más líneas repetidas; para **cobertura**, las unidades por debajo del umbral.
+Se listan **todos** los archivos y líneas que el análisis marca para cada criterio en rojo. Para **duplicación** se muestran los archivos con líneas repetidas; para **cobertura**, las unidades por debajo del umbral.
+
+**Resumen por archivo** — archivos con más hallazgos:
+
+| Archivo | Hallazgos | Peso total | Señales |
+|---|---:|---:|---|
+| `mqtt_broker.py` | 1 | 8 | low_cohesion |
 
 **Baja cohesión (Coh)** — 1 hallazgo(s) en 1 archivo(s):
 
-| Archivo | Línea(s) | Señal |
-|---|---|---|
-| `mqtt_broker.py` | 6 | clase 'InMemoryMQTTBroker' con baja cohesión (47%) |
+| Archivo | Línea(s) | Señal | Detalle |
+|---|---|---|---|
+| `mqtt_broker.py` | 6 | low_cohesion | clase 'InMemoryMQTTBroker' con baja cohesión (47%) |
 
 ---
 _Informe generado por la cátedra. Los umbrales corresponden al perfil `exigente`. Ante dudas, revisá el archivo y la línea señalados y el criterio en `CRITERIOS-CALIDAD.md`._
